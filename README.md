@@ -86,8 +86,8 @@ Une application web complète de gestion d'événements développée avec Spring
 
 ### 1. Cloner le Repository
 ```bash
-git clone https://github.com/<username>/event-management-app.git
-cd event-management-app
+https://github.com/Ayoub-lah/Gestion_Events
+cd Gestion_Events
 ```
 
 ### 2. Ouvrir avec IntelliJ IDEA
@@ -104,74 +104,6 @@ mvn clean install
 # 1. Ouvrir le panneau Maven (généralement à droite)
 # 2. Cliquer sur l'icône "Reload All Maven Projects"
 ```
-
----
-
-## 🗄️ Configuration
-
-### Fichier `application.properties`
-```properties
-# ================================
-# CONFIGURATION SERVEUR
-# ================================
-server.port=8080
-server.servlet.context-path=/
-
-# ================================
-# BASE DE DONNÉES H2
-# ================================
-spring.datasource.url=jdbc:h2:mem:eventdb
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
-spring.h2.console.enabled=true
-spring.h2.console.path=/h2-console
-spring.h2.console.settings.trace=false
-spring.h2.console.settings.web-allow-others=false
-
-# ================================
-# JPA & HIBERNATE
-# ================================
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
-spring.jpa.hibernate.ddl-auto=update
-spring.jpa.show-sql=true
-spring.jpa.properties.hibernate.format_sql=true
-spring.jpa.properties.hibernate.use_sql_comments=true
-spring.sql.init.mode=always
-spring.jpa.defer-datasource-initialization=true
-
-# ================================
-# VAADIN
-# ================================
-vaadin.servlet.productionMode=false
-vaadin.charts.development-mode=true
-
-# ================================
-# UPLOAD DE FICHIERS
-# ================================
-spring.servlet.multipart.max-file-size=10MB
-spring.servlet.multipart.max-request-size=10MB
-file.upload-dir=uploads
-
-# ================================
-# RESSOURCES STATIQUES
-# ================================
-spring.web.resources.static-locations=classpath:/static/,file:./uploads/
-app.base-url=http://localhost:8080
-
-# ================================
-# WEBSOCKETS
-# ================================
-spring.websocket.enabled=true
-```
-
-### Variables d'Environnement (Optionnel)
-```bash
-# Pour la production, vous pouvez utiliser :
-export SERVER_PORT=8080
-export DB_URL=jdbc:h2:mem:eventdb
-```
-
 ---
 
 ## ▶️ Lancer l'Application
@@ -188,12 +120,6 @@ mvn spring-boot:run
 
 # Avec un profil spécifique (si configuré)
 mvn spring-boot:run -Dspring-boot.run.profiles=dev
-```
-
-### Méthode 3 : Générer un JAR Exécutable
-```bash
-mvn clean package
-java -jar target/event-management-app-1.0.0.jar
 ```
 
 ### Vérifier le Démarrage
@@ -323,40 +249,6 @@ curl -u admin@event.ma:password123 http://localhost:8080/api/users
 
 ---
 
-## 📈 Déploiement
-
-### Préparation pour la Production
-1. Modifier `application.properties` :
-   ```properties
-   vaadin.servlet.productionMode=true
-   spring.h2.console.enabled=false
-   spring.jpa.show-sql=false
-   ```
-
-2. Configurer une base de données externe (MySQL/PostgreSQL) :
-   ```properties
-   spring.datasource.url=jdbc:mysql://localhost:3306/eventdb
-   spring.datasource.username=root
-   spring.datasource.password=votre_mot_de_passe
-   ```
-
-### Docker (Optionnel)
-```dockerfile
-# Dockerfile
-FROM openjdk:17-jdk-slim
-COPY target/event-management-app-*.jar app.jar
-EXPOSE 8080
-ENTRYPOINT ["java", "-jar", "/app.jar"]
-```
-
-```bash
-# Construire et exécuter
-docker build -t event-management-app .
-docker run -p 8080:8080 event-management-app
-```
-
 ---
 
 **✨ Développé avec passion pour la gestion d'événements ✨**
-
-*Dernière mise à jour : $(date +%Y-%m-%d)*
