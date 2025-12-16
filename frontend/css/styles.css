@@ -1,0 +1,647 @@
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleUp {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% center;
+    }
+    100% {
+        background-position: 200% center;
+    }
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ==================== GLOBAL STYLES ==================== */
+.home-view {
+    overflow-x: hidden;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* ==================== NAVBAR ANIMATIONS ==================== */
+.navbar {
+    transition: all 0.3s ease;
+}
+
+.animate-navbar {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.animate-logo {
+    animation: slideInLeft 0.6s ease-out;
+}
+
+.nav-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-button::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-button:hover::after {
+    width: 80%;
+}
+
+.animate-nav-button {
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.animate-nav-button:nth-child(1) { animation-delay: 0.1s; }
+.animate-nav-button:nth-child(2) { animation-delay: 0.2s; }
+.animate-nav-button:nth-child(3) { animation-delay: 0.3s; }
+.animate-nav-button:nth-child(4) { animation-delay: 0.4s; }
+
+.notification-btn {
+    position: relative;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: #ef4444;
+    color: white;
+    font-size: 10px;
+    font-weight: 600;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: pulse 2s infinite;
+}
+
+.user-avatar {
+    transition: all 0.3s ease;
+}
+
+.user-avatar:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+}
+
+.animate-auth-buttons {
+    animation: slideInRight 0.6s ease-out;
+}
+
+.login-btn, .register-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.login-btn::before, .register-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.login-btn:hover::before, .register-btn:hover::before {
+    left: 100%;
+}
+
+.register-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+.register-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+}
+
+/* ==================== HERO SECTION ANIMATIONS ==================== */
+.hero-section {
+    overflow: hidden;
+}
+
+.hero-pattern {
+    animation: float 8s ease-in-out infinite;
+}
+
+.hero-glow {
+    animation: float 6s ease-in-out infinite;
+}
+
+.hero-content {
+    position: relative;
+}
+
+.hero-badge {
+    animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.hero-title {
+    animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.hero-subtitle {
+    animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.hero-cta-buttons {
+    animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+.explore-btn, .create-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.explore-btn::after, .create-btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s;
+}
+
+.explore-btn:hover::after, .create-btn:hover::after {
+    left: 100%;
+}
+
+.explore-btn:hover, .create-btn:hover {
+    transform: translateY(-2px);
+}
+
+.explore-btn {
+    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+.stat-card {
+    opacity: 0;
+    animation: fadeInUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.stat-card:nth-child(1) { animation-delay: 0.1s; }
+.stat-card:nth-child(2) { animation-delay: 0.2s; }
+.stat-card:nth-child(3) { animation-delay: 0.3s; }
+.stat-card:nth-child(4) { animation-delay: 0.4s; }
+
+.stat-number {
+    position: relative;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+}
+
+/* ==================== SEARCH SECTION ANIMATIONS ==================== */
+.search-section {
+    position: relative;
+}
+
+.search-card {
+    animation: scaleUp 0.6s ease-out;
+}
+
+.search-field::part(input-field) {
+    transition: all 0.3s ease;
+    border: 2px solid #e2e8f0;
+}
+
+.search-field::part(input-field):focus {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+.search-button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(99, 102, 241, 0.3);
+}
+
+.search-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.search-button:hover::before {
+    left: 100%;
+}
+
+/* ==================== EVENTS SECTION ANIMATIONS ==================== */
+.section-title {
+    position: relative;
+    display: inline-block;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 2px;
+    animation: slideInLeft 0.8s ease-out;
+}
+
+.view-all-btn {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.view-all-btn::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    transition: left 0.3s ease;
+}
+
+.view-all-btn:hover::after {
+    left: 0;
+}
+
+.events-grid {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.event-card {
+    transition: all 0.3s ease;
+}
+
+.event-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12) !important;
+}
+
+/* ==================== CATEGORIES SECTION ANIMATIONS ==================== */
+.category-card {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.category-card:hover .category-icon-container {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.category-icon-container {
+    transition: all 0.3s ease;
+}
+
+/* ==================== FEATURES SECTION ANIMATIONS ==================== */
+.feature-card {
+    opacity: 0;
+    animation: scaleUp 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.feature-card:hover .feature-icon-container {
+    transform: scale(1.1);
+}
+
+.feature-icon-container {
+    transition: all 0.3s ease;
+}
+
+/* ==================== TESTIMONIALS SECTION ANIMATIONS ==================== */
+.testimonial-card {
+    opacity: 0;
+    animation: fadeIn 0.6s ease-out;
+    animation-fill-mode: both;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1) !important;
+}
+
+/* ==================== FOOTER ANIMATIONS ==================== */
+.footer-link {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.footer-link::before {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #6366f1;
+    transition: width 0.3s ease;
+}
+
+.footer-link:hover::before {
+    width: 100%;
+}
+
+.social-btn {
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.social-btn:hover {
+    transform: translateY(-2px);
+}
+
+.social-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.social-btn:hover::before {
+    left: 100%;
+}
+
+.animate-social-btn {
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+.animate-link {
+    animation: fadeIn 0.5s ease-out;
+    animation-fill-mode: both;
+}
+
+/* ==================== RESPONSIVE ANIMATIONS ==================== */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 32px !important;
+    }
+
+    .section-title {
+        font-size: 28px !important;
+    }
+
+    .hero-stats {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+    }
+
+    .stat-card {
+        min-width: 120px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: 28px !important;
+    }
+
+    .section-title {
+        font-size: 24px !important;
+    }
+
+    .hero-cta-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .explore-btn, .create-btn {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .search-bar {
+        flex-direction: column;
+    }
+
+    .search-field, .category-filter, .sort-filter, .search-button {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+}
+
+/* ==================== ANIMATION UTILITIES ==================== */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.fade-in-up {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.scale-up {
+    animation: scaleUp 0.6s ease-out;
+}
+
+/* ==================== LOADING STATES ==================== */
+@keyframes shimmer-loading {
+    0% {
+        background-position: -200px 0;
+    }
+    100% {
+        background-position: calc(200px + 100%) 0;
+    }
+}
+
+.loading {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200px 100%;
+    animation: shimmer-loading 1.5s infinite;
+}
+
+/* ==================== CUSTOM SCROLLBAR ==================== */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #4f46e5, #7c3aed);
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .animate-on-scroll,
+    .animate-navbar,
+    .animate-logo,
+    .animate-nav-button,
+    .animate-auth-buttons,
+    .hero-badge,
+    .hero-title,
+    .hero-subtitle,
+    .hero-cta-buttons,
+    .stat-card,
+    .search-card,
+    .category-card,
+    .feature-card,
+    .testimonial-card,
+    .animate-social-btn,
+    .animate-link {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+}
