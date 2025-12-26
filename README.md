@@ -18,9 +18,6 @@ Une application web complète de gestion d'événements développée avec Spring
 - [Accès aux Interfaces](#-accès-aux-interfaces)
 - [Sécurité & Rôles](#-sécurité--rôles)
 - [Structure du Projet](#-structure-du-projet)
-- [Développement](#-développement)
-- [Dépannage](#-dépannage)
-- [Licence](#-licence)
 
 ---
 
@@ -190,64 +187,6 @@ mvn versions:display-dependency-updates
 # Formatter le code
 mvn spotless:apply
 ```
-
-### Développement Frontend (Vaadin)
-```bash
-# Mode développement Vaadin
-mvn spring-boot:run -Pproduction-mode=false
-
-# Builder le frontend
-mvn vaadin:prepare-frontend
-mvn vaadin:build-frontend
-```
-
-### Débogage
-```bash
-# Démarrer en mode debug
-mvn spring-boot:run -Dspring-boot.run.jvmArguments="-Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5005"
-
-# Connexion depuis IntelliJ :
-# Run → Edit Configurations → + → Remote JVM Debug
-# Host: localhost, Port: 5005
-```
-
----
-
-## 🔧 Dépannage
-
-### Problèmes Courants et Solutions
-
-| Problème | Solution |
-|----------|----------|
-| **Port 8080 déjà utilisé** | `server.port=8081` dans `application.properties` ou `netstat -ano \| findstr :8080` puis `taskkill /PID [PID] /F` |
-| **Erreurs de dépendances Maven** | `mvn clean install -U` puis recharger le projet dans IntelliJ |
-| **H2 Console inaccessible** | Vérifier `spring.h2.console.enabled=true` et l'URL `http://localhost:8080/h2-console` |
-| **Upload de fichiers échoue** | Vérifier que le dossier `uploads/` existe et a les permissions d'écriture |
-| **Vaadin ne se compile pas** | Supprimer `node_modules/` et `package-lock.json` puis `mvn clean install` |
-| **Authentification échoue** | Vérifier les logs Spring Security et les données dans `data.sql` |
-
-### Logs et Surveillance
-```bash
-# Niveau de logs (dans application.properties)
-logging.level.com.eventmanagement=DEBUG
-logging.level.org.springframework.security=DEBUG
-logging.level.org.hibernate.SQL=DEBUG
-
-# Vérifier les logs de démarrage
-tail -f logs/application.log
-```
-
-### Tests de Connexion
-```bash
-# Tester la base de données
-echo "SELECT COUNT(*) FROM USERS;" | curl -X POST http://localhost:8080/h2-console
-
-# Tester l'API (avec curl)
-curl -X GET http://localhost:8080/api/events
-curl -u admin@event.ma:password123 http://localhost:8080/api/users
-```
-
----
 
 ---
 
